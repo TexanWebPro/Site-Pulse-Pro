@@ -5,7 +5,6 @@
 **Site Pulse Pro** is a free WordPress plugin designed to function as:
 
 - An _admin-only monitoring and risk visibility tool_ for WordPress sites
-- A _lead magnet_ and qualification layer for Texan Web Pro’s **Custodianship+** offering
 
 The plugin intentionally **reveals problems without fully solving them**, creating a natural upgrade path into a managed caretaker relationship.
 
