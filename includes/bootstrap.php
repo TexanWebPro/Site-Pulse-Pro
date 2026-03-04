@@ -34,21 +34,19 @@ if (is_admin()) {
     require_once SITE_PULSE_PRO_PATH . 'includes/admin/assets.php';
 }
 
+// DB + Cron core (loaded always because activation/deactivation needs them)
+require_once SITE_PULSE_PRO_PATH . 'includes/database/schema.php';
+require_once SITE_PULSE_PRO_PATH . 'includes/cron/scheduler.php';
+
 /**
  * ------------------------------------------------------------
  * Activation / Deactivation Hooks
  * ------------------------------------------------------------
  */
 
-register_activation_hook(
-    SITE_PULSE_PRO_PATH . 'site-pulse-pro.php',
-    'site_pulse_pro_activate'
-);
+register_activation_hook(SITE_PULSE_PRO_MAIN_FILE, 'site_pulse_pro_activate');
 
-register_deactivation_hook(
-    SITE_PULSE_PRO_PATH . 'site-pulse-pro.php',
-    'site_pulse_pro_deactivate'
-);
+register_deactivation_hook(SITE_PULSE_PRO_MAIN_FILE, 'site_pulse_pro_deactivate');
 
 /**
  * ------------------------------------------------------------
@@ -57,12 +55,13 @@ register_deactivation_hook(
  */
 
 function site_pulse_pro_activate(): void {
-    // Reserved for:
-    // - DB table creation
-    // - Cron registration
+ // 1) Create / upgrade DB tables
+    site_pulse_pro_create_tables();
+
+    // 2) Schedule cron events immediately
+    site_pulse_pro_schedule_events();
 }
 
 function site_pulse_pro_deactivate(): void {
-    // Reserved for:
-    // - Cron unscheduling
+    site_pulse_pro_unschedule_events();
 }

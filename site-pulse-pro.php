@@ -5,11 +5,13 @@
  * Description: Admin-only WordPress site health & risk monitoring.
  * Version: 0.1.0
  * Author: TexanWebPro
- * AuthorURI: https://texanwebpro.com
+ * Author URI: https://texanwebpro.com
  * License: GPLv2
- * LicenseURI: https://github.com/TexanWebPro/Site-Pulse-Pro/blob/master/LICENSE
+ * License URI: https://github.com/TexanWebPro/Site-Pulse-Pro/blob/master/LICENSE
  */
 
 defined('ABSPATH') || exit;
+
+define('SITE_PULSE_PRO_MAIN_FILE', __FILE__);
 
 require_once __DIR__ . '/includes/bootstrap.php';
