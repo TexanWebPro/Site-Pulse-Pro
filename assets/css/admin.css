@@ -1,0 +1,22 @@
+/* Site Pulse Pro admin dashboard - MVP starter */
+
+.wrap h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    color: #1e73be;
+}
+
+.wrap p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Placeholder box for dashboard modules */
+.site-pulse-pro-module {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: #fafafa;
+}

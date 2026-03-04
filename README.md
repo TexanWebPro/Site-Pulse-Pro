@@ -29,9 +29,8 @@ The plugin intentionally **reveals problems without fully solving them**, creati
 - Site Pulse Score (0–100)
 - Risk category breakdown (read-only)
 - Admin-only monitoring dashboard
-- Email-gated report generation
+- Report generation
 - Basic trend storage (7–30 days)
-- Lead capture + outbound webhook
 
 ### Explicitly Excluded
 
@@ -71,7 +70,6 @@ Each module displays:
 
 - Status indicator (green / yellow / red)
 - Short business-language explanation
-- CTA: “Protect this with Custodianship+”
 
 #### Modules
 
@@ -198,21 +196,6 @@ Stores aggregated scan results.
 
 ---
 
-### 8.3 `wp_sitepulse_leads`
-
-Stores captured lead info.
-
-| Column      | Type         | Notes      |
-| ----------- | ------------ | ---------- |
-| id          | BIGINT PK    |            |
-| name        | VARCHAR(255) |            |
-| email       | VARCHAR(255) |            |
-| role        | VARCHAR(100) |            |
-| pulse_score | INT          | At capture |
-| created_at  | DATETIME     |            |
-
----
-
 ## 9. Security & Privacy
 
 - Admin-only access (`manage_options`)
@@ -229,20 +212,12 @@ Stores captured lead info.
 3. DB tables + cron
 4. Score engine
 5. Dashboard UI
-6. Lead gate + email
-7. CTAs + copy
+6. Email
+7. Copy
 
 ---
 
-## 11. Success Criteria
-
-- Plugin installs → report generation ≥ 30%
-- Report → email capture ≥ 60%
-- Email → sales conversation ≥ 10%
-
----
-
-## 12. Future Expansion (Post-MVP)
+## 11. Future Expansion (Post-MVP)
 
 - Paid tier with auto-fixes
 - External monitoring service
@@ -251,7 +226,7 @@ Stores captured lead info.
 
 ---
 
-## 13. Project Directory Structure
+## 12. Project Directory Structure
 
 ```
 site-pulse-pro/
