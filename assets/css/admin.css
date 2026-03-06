@@ -12,11 +12,70 @@
     color: #333;
 }
 
-/* Placeholder box for dashboard modules */
-.site-pulse-pro-module {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 1em;
-    margin-bottom: 1em;
-    background-color: #fafafa;
+/* --- Site Pulse Pro: progress bars (MVP upgrade) --- */
+
+.site-pulse-pro-modules {
+  max-width: 920px;
 }
+
+.site-pulse-pro-module {
+  border: 1px solid #dcdcde;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: #fff;
+}
+
+.spp-module-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.spp-module-head h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.spp-score {
+  font-size: 12px;
+  color: #646970;
+}
+
+.spp-bar {
+  height: 10px;
+  border-radius: 999px;
+  background: #f0f0f1;
+  overflow: hidden;
+  border: 1px solid #e2e4e7;
+}
+
+.spp-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  width: 0%;
+}
+
+/* Status colors (no fancy palettes; readable defaults) */
+.spp-bar-fill.spp-good { background: #1d7f3f; }
+.spp-bar-fill.spp-warn { background: #b35c00; }
+.spp-bar-fill.spp-bad  { background: #b32d2e; }
+
+.spp-bar-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #646970;
+}
+
+.spp-status {
+  font-weight: 600;
+}
+
+.spp-status.spp-good { color: #1d7f3f; }
+.spp-status.spp-warn { color: #b35c00; }
+.spp-status.spp-bad  { color: #b32d2e; }
