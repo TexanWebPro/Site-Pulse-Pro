@@ -3,7 +3,7 @@
  * Plugin Name: Site Pulse Pro
  * Plugin URI: https://texanwebpro.com/site-pulse-pro
  * Description: Admin-only WordPress site health & risk monitoring.
- * Version: 0.1.0
+ * Version: 0.1.2
  * Author: TexanWebPro
  * Author URI: https://texanwebpro.com
  * License: GPLv2

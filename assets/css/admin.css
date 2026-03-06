@@ -15,7 +15,9 @@
 /* --- Site Pulse Pro: progress bars (MVP upgrade) --- */
 
 .site-pulse-pro-modules {
-  max-width: 920px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 .site-pulse-pro-module {
@@ -24,6 +26,16 @@
   padding: 14px 16px;
   margin-bottom: 12px;
   background: #fff;
+  /* Ensure cards stretch nicely */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Collapse to one column on narrower admin screens */
+@media (max-width: 900px) {
+  .site-pulse-pro-modules {
+    grid-template-columns: 1fr;
+  }
 }
 
 .spp-module-head {
@@ -120,4 +132,28 @@
   background: #fde8e8;
   color: #b32d2e;
   border-color: #f5b5b6;
+}
+
+.spp-module-section {
+  margin-top: 12px;
+}
+
+.spp-module-section strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.spp-module-section p {
+  margin: 0;
+  color: #3c434a;
+}
+
+.spp-issues {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.spp-issues li {
+  margin-bottom: 4px;
+  color: #3c434a;
 }

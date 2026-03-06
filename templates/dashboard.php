@@ -32,26 +32,25 @@ $weights = require SITE_PULSE_PRO_PATH . 'includes/scoring/weights.php';
         </h2>
 
     <div class="site-pulse-pro-modules">
-        <?php foreach ($categories as $category => $score): ?>
+        <?php foreach ($modules as $module): ?>
             <?php
-                $max = (int) ($weights[$category] ?? 0);
-                $pct = ($max > 0) ? (int) round(($score / $max) * 100) : 0;
+                $pct = ($module['max'] > 0)
+                    ? (int) round(($module['score'] / $module['max']) * 100)
+                    : 0;
 
-                // Status bands (tune later if you want)
-                // >= 80% = good, >= 50% = warn, else bad
-                $status = 'bad';
+                $bar_status = 'bad';
                 if ($pct >= 80) {
-                    $status = 'good';
+                    $bar_status = 'good';
                 } elseif ($pct >= 50) {
-                    $status = 'warn';
+                    $bar_status = 'warn';
                 }
             ?>
 
             <div class="site-pulse-pro-module">
                 <div class="spp-module-head">
-                    <h3><?php echo esc_html(ucfirst($category)); ?></h3>
+                    <h3><?php echo esc_html($module['title']); ?></h3>
                     <div class="spp-score">
-                        <?php echo esc_html($score); ?>/<?php echo esc_html($max); ?>
+                        <?php echo esc_html($module['score']); ?>/<?php echo esc_html($module['max']); ?>
                     </div>
                 </div>
 
@@ -59,16 +58,33 @@ $weights = require SITE_PULSE_PRO_PATH . 'includes/scoring/weights.php';
                      aria-valuenow="<?php echo esc_attr($pct); ?>"
                      aria-valuemin="0"
                      aria-valuemax="100">
-                    <div class="spp-bar-fill spp-<?php echo esc_attr($status); ?>"
+                    <div class="spp-bar-fill spp-<?php echo esc_attr($bar_status); ?>"
                          style="width: <?php echo esc_attr($pct); ?>%;">
                     </div>
                 </div>
 
                 <div class="spp-bar-meta">
+                    <span><?php echo esc_html($module['status']); ?></span>
                     <span><?php echo esc_html($pct); ?>%</span>
-                    <span class="spp-status spp-<?php echo esc_attr($status); ?>">
-                        <?php echo esc_html(ucfirst($status)); ?>
-                    </span>
+                </div>
+
+                <div class="spp-module-section">
+                    <strong><?php echo esc_html__('Issues', 'site-pulse-pro'); ?></strong>
+                    <ul class="spp-issues">
+                        <?php foreach ($module['issues'] as $issue): ?>
+                            <li><?php echo esc_html($issue); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+
+                <div class="spp-module-section">
+                    <strong><?php echo esc_html__('Why this matters', 'site-pulse-pro'); ?></strong>
+                    <p><?php echo esc_html($module['why_it_matters']); ?></p>
+                </div>
+
+                <div class="spp-module-section">
+                    <strong><?php echo esc_html__('Recommended action', 'site-pulse-pro'); ?></strong>
+                    <p><?php echo esc_html($module['recommended_action']); ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
