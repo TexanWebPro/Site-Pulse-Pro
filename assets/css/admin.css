@@ -79,3 +79,45 @@
 .spp-status.spp-good { color: #1d7f3f; }
 .spp-status.spp-warn { color: #b35c00; }
 .spp-status.spp-bad  { color: #b32d2e; }
+
+/* --- Total score badge --- */
+
+.spp-total {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.spp-total-score {
+  font-weight: 700;
+}
+
+.spp-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+
+/* Badge states */
+.spp-badge.spp-healthy {
+  background: #e7f7ed;
+  color: #1d7f3f;
+  border-color: #bfe6cc;
+}
+
+.spp-badge.spp-at-risk {
+  background: #fff4e5;
+  color: #b35c00;
+  border-color: #ffd9a8;
+}
+
+.spp-badge.spp-critical {
+  background: #fde8e8;
+  color: #b32d2e;
+  border-color: #f5b5b6;
+}

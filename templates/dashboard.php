@@ -7,10 +7,29 @@ $weights = require SITE_PULSE_PRO_PATH . 'includes/scoring/weights.php';
 <div class="wrap">
     <h1><?php echo esc_html__('Site Pulse Pro', 'site-pulse-pro'); ?></h1>
 
-    <h2>
-        <?php echo esc_html__('Total Site Pulse Score'); ?>:
-        <?php echo esc_html($total_score); ?>/100
-    </h2>
+    <?php
+        // Total status (based on % of 100)
+        $total_pct = (int) round(($total_score / 100) * 100);
+
+        $total_status = 'critical';
+        if ($total_pct >= 80) {
+            $total_status = 'healthy';
+        } elseif ($total_pct >= 50) {
+            $total_status = 'at-risk';
+        }
+
+        $total_label = ($total_status === 'healthy')
+            ? 'Healthy'
+            : (($total_status === 'at-risk') ? 'At Risk' : 'Critical');
+    ?>
+
+        <h2 class="spp-total">
+            <?php echo esc_html__('Total Site Pulse Score', 'site-pulse-pro'); ?>:
+            <span class="spp-total-score"><?php echo esc_html($total_score); ?>/100</span>
+            <span class="spp-badge spp-<?php echo esc_attr($total_status); ?>">
+                <?php echo esc_html($total_label); ?>
+            </span>
+        </h2>
 
     <div class="site-pulse-pro-modules">
         <?php foreach ($categories as $category => $score): ?>
