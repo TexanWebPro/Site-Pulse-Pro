@@ -26,9 +26,15 @@
   padding: 14px 16px;
   margin-bottom: 12px;
   background: #fff;
-  /* Ensure cards stretch nicely */
   display: flex;
   flex-direction: column;
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+/* Elevation on hover */
+.site-pulse-pro-module:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 /* Collapse to one column on narrower admin screens */

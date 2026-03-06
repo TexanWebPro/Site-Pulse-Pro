@@ -31,6 +31,14 @@ $weights = require SITE_PULSE_PRO_PATH . 'includes/scoring/weights.php';
             </span>
         </h2>
 
+        <form method="post" style="margin: 12px 0 18px;">
+            <?php wp_nonce_field('site_pulse_pro_refresh_scan_action', 'site_pulse_pro_refresh_scan_nonce'); ?>
+            <input type="hidden" name="site_pulse_pro_refresh_scan" value="1">
+            <button type="submit" class="button button-secondary">
+                <?php echo esc_html__('Refresh Scan', 'site-pulse-pro'); ?>
+            </button>
+        </form>
+
     <div class="site-pulse-pro-modules">
         <?php foreach ($modules as $module): ?>
             <?php

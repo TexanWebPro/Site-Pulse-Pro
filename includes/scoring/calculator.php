@@ -36,7 +36,7 @@ function site_pulse_pro_calculate_score(array $metrics): array {
     $scores['uptime'] = round($uptime_score);
 
     // ---------- Backups ----------
-    $scores['backups'] = ($metrics['backup_detected'] ?? 0) ? $weights['backups'] : 0;
+    $scores['backups'] = !empty($metrics['backup_detected']) ? $weights['backups'] : 0;
 
     // ---------- Security ----------
     $security_score = $weights['security'];

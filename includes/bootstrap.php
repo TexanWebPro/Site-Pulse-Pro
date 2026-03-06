@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
  * ------------------------------------------------------------
  */
 
-define('SITE_PULSE_PRO_VERSION', '0.1.2');
+define('SITE_PULSE_PRO_VERSION', '0.1.10');
 define('SITE_PULSE_PRO_PATH', plugin_dir_path(__DIR__));
 define('SITE_PULSE_PRO_URL', plugin_dir_url(__DIR__));
 define('SITE_PULSE_PRO_BASENAME', plugin_basename(dirname(__DIR__)));
